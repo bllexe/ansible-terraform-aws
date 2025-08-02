@@ -1,0 +1,21 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+terraform.tfvars.json
+crash.log
+
+# SSH Key
+*.pem
+*.key
+
+# Ansible Inventory 
+ansible/inventory.ini
+
+# Genel
+*.log
+*.bak
+*.swp
+.idea/
+.vscode/
