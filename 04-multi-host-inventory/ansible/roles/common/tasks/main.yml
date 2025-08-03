@@ -1,0 +1,3 @@
+- name: Print environment
+  debug:
+    msg: "This is the {{ env_name }} environment"
