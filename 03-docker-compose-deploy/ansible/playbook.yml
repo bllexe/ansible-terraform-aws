@@ -1,0 +1,6 @@
+- name: Setup EC2 with Docker and run Nginx using Docker Compose
+  hosts: web 
+  become: true
+  roles:
+    - docker
+    - docker_compose

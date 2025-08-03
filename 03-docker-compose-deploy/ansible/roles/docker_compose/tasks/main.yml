@@ -1,0 +1,23 @@
+- name: Install pip (Python package manager)
+  apt:
+    name: python3-pip
+    state: present
+
+- name: Install docker-compose via pip
+  pip:
+    name: docker-compose
+
+- name: Create app directory
+  file:
+    path: /opt/nginx-app
+    state: directory
+
+- name: Copy docker-compose.yml
+  copy:
+    src: docker-compose.yml
+    dest: /opt/nginx-app/docker-compose.yml
+
+- name: Run docker-compose up
+  shell: docker-compose up -d
+  args:
+    chdir: /opt/nginx-app
