@@ -1,0 +1,19 @@
+- name: Vault Demo Setup
+  hosts: vault_demo
+  become: yes
+  vars_files:
+    - group_vars/all/vault.yml
+
+  tasks:
+    - name: Print API token (for demo purposes)
+      debug:
+        msg: "API Token is {{ vault_api_token }}"
+
+    - name: Create a sample config file with secret data
+      copy:
+        dest: /home/ubuntu/secret_config.txt
+        content: |
+          DB_PASSWORD={{ vault_db_password }}
+          API_TOKEN={{ vault_api_token }}
+        owner: ubuntu
+        mode: '0600'
