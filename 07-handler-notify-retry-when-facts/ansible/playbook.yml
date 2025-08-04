@@ -1,0 +1,32 @@
+- name: Apache Installation and Configuration with Ansible Concepts
+  hosts: web
+  become: true
+  vars:
+    apache_index_content: "Welcome to Ansible Managed Apache Server"
+
+  tasks:
+
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+      notify: restart apache
+      retries: 3
+      delay: 5
+      register: apache_result
+      until: apache_result is succeeded
+
+    - name: Print distribution info
+      debug:
+        msg: "System is {{ ansible_distribution }} {{ ansible_distribution_version }}"
+
+    - name: Create index.html
+      copy:
+        dest: /var/www/html/index.html
+        content: "{{ apache_index_content }}"
+      notify: restart apache
+      when: ansible_distribution == "Ubuntu"
+
+  handlers:
+    - import_tasks: handlers.yml
