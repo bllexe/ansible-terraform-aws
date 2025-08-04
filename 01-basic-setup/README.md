@@ -10,6 +10,8 @@ This project demonstrates how to provision an EC2 instance on AWS using Terrafor
 
 ## project structure 
 
+``` bash
+
 ansible-terraform-aws-project/
 ├── .gitignore
 ├── README.md
@@ -24,8 +26,7 @@ ansible-terraform-aws-project/
 │   └── ansible/
 │       ├── inventory.ini       
 │       └── ping.yml
-
-
+```
 
 ### Goals:
 - Provision an EC2 instance using Terraform

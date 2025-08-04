@@ -6,6 +6,8 @@ This project demonstrates how to securely manage sensitive information (like pas
 
 ## 🧱 Project Structure
 
+```bash
+
 06-ansible-vault/
 ├── terraform/ # Terraform configs for AWS provisioning
 │ ├── provider.tf
@@ -23,8 +25,7 @@ This project demonstrates how to securely manage sensitive information (like pas
 │ └── vault_pass.txt # (optional) Vault password file
 
 
-
----
+```
 
 ## 🚀 Technologies Used
 
