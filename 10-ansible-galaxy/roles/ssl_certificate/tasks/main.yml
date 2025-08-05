@@ -1,0 +1,22 @@
+---
+- name: Create SSL directory
+  file:
+    path: /etc/nginx/ssl
+    state: directory
+    mode: '0755'
+
+- name: Place self-signed certificate
+  copy:
+    dest: /etc/nginx/ssl/self-signed.crt
+    content: |
+      -----BEGIN CERTIFICATE-----
+      FAKE-CERTIFICATE-CONTENT
+      -----END CERTIFICATE-----
+
+- name: Place private key
+  copy:
+    dest: /etc/nginx/ssl/self-signed.key
+    content: |
+      -----BEGIN PRIVATE KEY-----
+      FAKE-PRIVATE-KEY-CONTENT
+      -----END PRIVATE KEY-----

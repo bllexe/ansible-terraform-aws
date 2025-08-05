@@ -1,0 +1,15 @@
+---
+- name: Create website directory
+  file:
+    path: /var/www/html
+    state: directory
+    mode: '0755'
+
+- name: Deploy index.html
+  copy:
+    dest: /var/www/html/index.html
+    content: |
+      <html>
+        <head><title>Welcome</title></head>
+        <body><h1>Hello from Ansible!</h1></body>
+      </html>

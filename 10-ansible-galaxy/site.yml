@@ -1,0 +1,9 @@
+---
+- name: Setup Nginx with SSL and Website
+  hosts: web
+  become: yes
+
+  roles:
+    - geerlingguy.nginx
+    - ssl_certificate
+    - deploy_website
